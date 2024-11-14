@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="onButtonClick"
     tools:context=".MainActivity">
 
 
@@ -130,3 +129,5 @@
         android:text=""
         tools:layout_editor_absoluteX="68dp"
         tools:layout_editor_absoluteY="269dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

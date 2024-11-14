@@ -2,12 +2,15 @@ package com.example.tictactoe;
 
 import android.os.Bundle;
 import android.view.View;
-
+import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         turn = "X";
         count = 0;
     }
+
     private void handleClick(int row, int col, int id) {
         if (board[row][col].equals("")) {
             board[row][col] = turn;
@@ -80,8 +84,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isWinner() {
+        for (int row = 0; row < 3; row++) {
+            if (board[row][0].equals(board[row][1]) && board[row][1].equals(board[row][2]) && !board[row][0].equals(""))
+                return true;
+        }
+        for (int col = 0; col < 3; col++) {
+            if (board[0][col].equals(board[1][col]) && board[1][col].equals(board[2][col]) && !board[0][col].equals(""))
+                return true;
+        }
+        if (board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && !board[0][0].equals(""))
+            return true;
+        if (board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[0][2].equals(""))
+            return true;
         return false;
     }
+
 
 
     public void onButtonClick(View view)
